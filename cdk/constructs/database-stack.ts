@@ -1,4 +1,4 @@
-import {Stack, StackProps} from "aws-cdk-lib";
+import {RemovalPolicy, Stack, StackProps} from "aws-cdk-lib";
 import { Attribute, AttributeType, BillingMode, Table  } from "aws-cdk-lib/aws-dynamodb";
 import { Construct } from "constructs";
 
@@ -15,6 +15,7 @@ export class DatabaseTable extends Stack{
                 name: 'name',
                 type: AttributeType.STRING
             },
+            removalPolicy: RemovalPolicy.DESTROY,
             billingMode: BillingMode.PAY_PER_REQUEST
         })
         this.restaurantsTable = restaurantstable
